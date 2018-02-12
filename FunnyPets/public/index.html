@@ -11,6 +11,52 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
+
+        <h1 id="proof"></h1>
         <div>TODO write content</div>
+        <label>correo:</label>
+        <input type="email" id="email"/><br>
+        <label>contraseña:</label>
+        <input type="password" id="pass"/><br>
+        <button type="submit" onclick="crearUsuarioNuevo()">crear</button>
     </body>
+
+
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-messaging.js"></script>
+    <!--script src="scripts/firebaseConnection.js"></script-->
+    <script>
+
+        var config = {
+            apiKey: "AIzaSyBRfZdgrnRTpB_siiWS7YZAqxYl6DKUNZ0",
+            authDomain: "funnypets-d3a7a.firebaseapp.com",
+            databaseURL: "https://funnypets-d3a7a.firebaseio.com",
+            projectId: "funnypets-d3a7a",
+            storageBucket: "",
+            messagingSenderId: "974970038538"
+        };
+        firebase.initializeApp(config);
+        var id = document.getElementById("proof");
+        //referencia de lla base de datos
+        var dbref = firebase.database().ref().child("text");
+        dbref.on('value', snap => id.innerHTML = snap.val());
+
+        //crear usuario con correo y contraseñña
+        function crearUsuarioNuevo() {
+            email=document.getElementById("email").value;
+            console.log(email);
+            password=document.getElementById("pass").value;
+            firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                // ...
+            });
+        }
+    </script>
 </html>
+
