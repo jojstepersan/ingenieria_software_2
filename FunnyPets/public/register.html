@@ -296,32 +296,33 @@
         firebase.initializeApp(config);
         var provider = new firebase.auth.GoogleAuthProvider();//instancia de google para el registro
         provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+        
+    
         function crearUsuarioConGoogle(){
             firebase.auth().signInWithPopup(provider).then(function(result) {
                 // This gives you a Google Access Token. You can use it to access the Google API.
                 var token = result.credential.accessToken;
                 // The signed-in user info.
                 
-                console.log(token);
+                //console.log(token);
                 var user = result.user;
                 // ...
                 
-                console.log(user);
+                console.log("registrando..");
                 }).catch(function(error) {
                     // Handle Errors here.
                     var errorCode = error.code;
                     var errorMessage = error.message;
-                    console.log(errorCode);
+                    //console.log(errorCode);
                     console.log(errorMessage);
                     // The email of the user's account used.
                     var email = error.email;
                     // The firebase.auth.AuthCredential type that was used.
                     var credential = error.credential;
                     // ...
-                    console.log(email);
-                    console.log(credential);
                     console.log("algo anda mal");
                 });
+                console.log("todo bien");
         }
 
         function crearUsuarioNuevo() {
@@ -335,7 +336,7 @@
             else if(password1.length<8)//validar que la contraseña tenga minumo 8 caracteres
                 alert("The password must have a minimum of 8 characters");
             else {
-                firebase.auth().createUserWithEmailAndPassword(email, password1).catch(function (error) {//crear cuenta
+                 firebase.auth().createUserWithEmailAndPassword(email, password1).catch(function (error) {//crear cuenta
                     // Handle Errors here.
                     var errorCode = error.code;
                     var errorMessage = error.message;

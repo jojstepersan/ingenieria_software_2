@@ -103,19 +103,24 @@
 												<div class="row form-group">
 													<div class="col-md-12">
 														<label for="email">Email</label>
-														<input type="email" id="email" class="form-control" /><br>
+                                                                                                                <input type="email" id="email" class="form-control" required/><br>
 													</div>
 												</div>
 												<div class="row form-group">
 													<div class="col-md-12">
 														<label for="password">Password</label>
-														<input type="password" id="pass" class="form-control">
+                                                                                                                <input type="password" id="pass" class="form-control" required>
 													</div>
 												</div>
 
 												<div class="row form-group">
 													<div class="col-md-12">
-														<input type="submit"  onclick="crearUsuarioNuevo()" class="btn btn-primary btn-block" value="Create">
+														<input type="submit"  onclick="login()" class="btn btn-primary btn-block" value="Login">
+													</div>
+												</div>
+                                                                                                <div class="row form-group">
+													<div class="col-md-12">
+                                                                                                            <input type="submit"  onclick="loginWithGoogle()" class="btn btn-primary btn-block" value="Login with Google">
 													</div>
 												</div>
 											</form>
@@ -280,23 +285,51 @@
             messagingSenderId: "974970038538"
         };
         firebase.initializeApp(config);
-        var id = document.getElementById("proof");
-        //referencia de lla base de datos
-        var dbref = firebase.database().ref().child("text");
-        dbref.on('value', snap => id.innerHTML = snap.val());
-
-        //crear usuario con correo y contraseñña
-        function crearUsuarioNuevo() {
+        function login()
+            {
+            console.log("login");  
             email=document.getElementById("email").value;
-            console.log(email);
             password=document.getElementById("pass").value;
-            firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
+            console.log("correcto");
+            firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
                 // Handle Errors here.
                 var errorCode = error.code;
                 var errorMessage = error.message;
+                alert(errorMessage);
+                console.log("algo salio mal "+errorMessage);
                 // ...
-            });
-        }
+              });
+              
+              console.log("logueado");
+            }
+            
+        var provider = new firebase.auth.GoogleAuthProvider();    
+        function loginWithGoogle()
+            {
+            
+            firebase.auth().signInWithPopup(provider).then(function(result) {
+                // This gives you a Google Access Token. You can use it to access the Google API.
+                var token = result.credential.accessToken;
+                // The signed-in user info.
+                console.log(token);
+                var user = result.user;
+                // ...
+                
+                console.log("logueado..");
+              }).catch(function(error) {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                // The email of the user's account used.
+                var email = error.email;
+                // The firebase.auth.AuthCredential type that was used.
+                var credential = error.credential;
+                // ...
+                alert(errorMessage);
+              });
+            }
+        //crear usuario con correo y contraseñña
+  
     </script>
 </html>
 
