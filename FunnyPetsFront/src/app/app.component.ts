@@ -11,7 +11,11 @@ import { Component } from '@angular/core';
 		'../assets/css/icomoon.css',
 		'../assets/css/magnific-popup.css',
 		'../assets/css/owl.carousel.min.css',
-		'../assets/css/owl.theme.default.min.css'
+		'../assets/css/owl.theme.default.min.css',
+		'../assets/css/icomoon.css',
+		'../assets/css/themify-icons.css',
+		'../assets/css/magnific-popup.css',
+		'../assets/css/style.css'
 	       ]
 })
 export class AppComponent {
