@@ -21,6 +21,7 @@
 	    "styles": [
 		"bootstrap.min.css",
 		"../src/assets/css/animate.css",
+		"../src/assets/css/bootstrap.css",
 		"../src/assets/css/icomoon.css",
 		"../src/assets/css/themify-icons.css",
 		"../src/assets/css/magnific-popup.css",
