@@ -1,195 +1,132 @@
-<!-- <div class="text-center"> -->
-<!--   <form class="form-signin"> -->
-<!--     <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
-<!--     <h1 class="h3 mb-3 font-weight-normal">¡Por favor, ingresa!</h1> -->
-<!--     <label for="inputEmail" class="sr-only">Email</label> -->
-<!--     <input id="inputEmail" class="form-control" placeholder="Email" required="" autofocus="" type="email"> -->
-<!--     <label for="inputPassword" class="sr-only">Contraseña</label> -->
-<!--     <input id="inputPassword" class="form-control" placeholder="Contraseña" required="" type="password"> -->
-<!--     <div class="checkbox mb-3"> -->
-<!--       <label> -->
-<!-- 	<input value="remember-me" type="checkbox"> Recordarme -->
-<!--       </label> -->
-<!--     </div> -->
-<!--     <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button> -->
-<!--   </form> -->
-<!-- </div> -->
-<!-- <div class="gtco-loader"></div> -->
-<!-- Animate.css -->
 <div class="gtco-loader"></div>
-
 <div id="page">
-
-
-  <!-- <div class="page-inner"> -->
-  <nav class="gtco-nav" role="navigation">
-    <div class="gtco-container">
-
-      <div class="row">
-	<div class="col-sm-4 col-xs-12">
-	  <div id="gtco-logo"><a href="index.html">FunnyPets <em>.</em></a></div>
-	</div>
-	<div class="col-xs-8 text-right menu-1">
-	  <ul>
-
-	    <li><a href="contact.html">Contact</a></li>
-	    <li class="btn-cta"><a href="register.html"><span>Register</span></a></li>
-	  </ul>
-	</div>
-      </div>
-
-    </div>
-  </nav>
-
-  <header id="gtco-header" class="gtco-cover gtco-cover-md" role="banner" style="background-image: url(assets/images/cat.jpg)" data-stellar-background-ratio="0.5">
-    <div class="overlay"></div>
-    <div class="gtco-container">
-      <div class="row">
-	<div class="col-md-12 col-md-offset-0 text-left">
-
-
-	  <div class="row row-mt-15em">
-	    <div class="col-md-7 mt-text animate-box" data-animate-effect="fadeInUp">
-
-	      <h1 class="cursive-font">Take me HOME</h1>
-	    </div>
-	    <div class="col-md-4 col-md-push-1 animate-box" data-animate-effect="fadeInRight">
-	      <div class="form-wrap">
-		<div class="tab">
-
-		  <div class="tab-content">
-		    <div class="tab-content-inner active" data-content="signup">
-		      <h3 class="cursive-font">Login</h3>
-		      <form action="#">
-			<div class="row form-group">
-			  <div class="col-md-12">
-			    <label for="email">Email</label>
-			    <input type="email" id="email" class="form-control" /><br>
-			  </div>
-			</div>
-			<div class="row form-group">
-			  <div class="col-md-12">
-			    <label for="password">Password</label>
-			    <input type="password" id="pass" class="form-control">
-			  </div>
-			</div>
-
-			<div class="row form-group">
-			  <div class="col-md-12">
-			    <input type="submit"  onclick="crearUsuarioNuevo()" class="btn btn-primary btn-block" value="Create">
-			  </div>
-			</div>
-		      </form>
+    <div class="page-inner">
+	<nav class="gtco-nav" role="navigation">
+	    <div class="gtco-container">
+		<div class="row">
+		    <div class="col-sm-4 col-xs-12">
+			<div id="gtco-logo"><a href="index.html">FunnyPets <em>.</em></a></div>
 		    </div>
-
-
-		  </div>
+		    <div class="col-xs-8 text-right menu-1">
+			<ul>
+			    <li><a href="contact.html">Contact</a></li>
+			    <li class="btn-cta"><a href="register.html"><span>Register</span></a></li>
+			</ul>
+		    </div>
 		</div>
-	      </div>
 	    </div>
-	  </div>
-
-
+	</nav>
+	<header id="gtco-header" class="gtco-cover gtco-cover-md" role="banner" style="background-image: url(assets/images/cat.jpg)" data-stellar-background-ratio="0.5">
+	    <div class="overlay"></div>
+	    <div class="gtco-container">
+		<div class="row">
+		    <div class="col-md-12 col-md-offset-0 text-left">
+			<div class="row row-mt-15em">
+			    <div class="col-md-7 mt-text animate-box" data-animate-effect="fadeInUp">
+				<h1 class="cursive-font">Take me HOME</h1>
+			    </div>
+			    <div class="col-md-4 col-md-push-1 animate-box" data-animate-effect="fadeInRight">
+				<div class="form-wrap">
+				    <div class="tab">
+					<div class="tab-content">
+					    <div class="tab-content-inner active" data-content="signup">
+						<h3 class="cursive-font">Login</h3>
+						<form action="#">
+						    <div class="row form-group">
+							<div class="col-md-12">
+							    <label for="email">Email</label>
+							    <input type="email" id="email" class="form-control" /><br>
+							</div>
+						    </div>
+						    <div class="row form-group">
+							<div class="col-md-12">
+							    <label for="password">Password</label>
+							    <input type="password" id="pass" class="form-control">
+							</div>
+						    </div>
+						    <div class="row form-group">
+							<div class="col-md-12">
+							    <input type="submit"  onclick="crearUsuarioNuevo()" class="btn btn-primary btn-block" value="Create">
+							</div>
+						    </div>
+						</form>
+					    </div>
+					</div>
+				    </div>
+				</div>
+			    </div>
+			</div>
+		    </div>
+		</div>
+	    </div>
+	</header>
+	<div id="gtco-counter" class="gtco-section">
+	    <div class="gtco-container">
+		<div class="row">
+		    <div class="col-md-8 col-md-offset-2 text-center gtco-heading animate-box">
+			<h2 class="cursive-font primary-color">Great Facts</h2>
+			<p>The greatest goal in our company today.</p>
+		    </div>
+		</div>
+		<div class="row">
+		    <div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInUp">
+			<div class="feature-center">
+			    <span class="counter js-counter" data-from="0" data-to="5" data-speed="5000" data-refresh-interval="50">1</span>
+			    <span class="counter-label">Avg. Rating</span>
+			</div>
+		    </div>
+		    <div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInUp">
+			<div class="feature-center">
+			    <span class="counter js-counter" data-from="0" data-to="43" data-speed="5000" data-refresh-interval="50">1</span>
+			    <span class="counter-label">Saved Races</span>
+			</div>
+		    </div>
+		    <div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInUp">
+			<div class="feature-center">
+			    <span class="counter js-counter" data-from="0" data-to="65" data-speed="5000" data-refresh-interval="50">1</span>
+			    <span class="counter-label">Adoptions</span>
+			</div>
+		    </div>
+		    <div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInUp">
+			<div class="feature-center">
+			    <span class="counter js-counter" data-from="0" data-to="2018" data-speed="5000" data-refresh-interval="50">1</span>
+			    <span class="counter-label">Year Started</span>
+			</div>
+		    </div>
+		</div>
+	    </div>
 	</div>
-      </div>
+	<footer id="gtco-footer" role="contentinfo" style="background-image: url(assets/images/bg_1.jpg)" data-stellar-background-ratio="0.5">
+	    <div class="overlay"></div>
+	    <div class="gtco-container">
+		<div class="row row-pb-md">
+		    <div class="col-md-12 text-center">
+			<div class="gtco-widget">
+			    <h3>Get In Touch</h3>
+			    <ul class="gtco-quick-contact">
+				<li><a href="#"><i class="icon-phone"></i> +1 234 567 890</a></li>
+				<li><a href="#"><i class="icon-mail2"></i> info@FunnyPets.co</a></li>
+				<li><a href="#"><i class="icon-chat"></i> Live Chat</a></li>
+			    </ul>
+			</div>
+			<div class="gtco-widget">
+			    <h3>Get Social</h3>
+			    <ul class="gtco-social-icons">
+				<li><a href="#"><i class="icon-twitter"></i></a></li>
+				<li><a href="#"><i class="icon-facebook"></i></a></li>
+				<li><a href="#"><i class="icon-linkedin"></i></a></li>
+				<li><a href="#"><i class="icon-dribbble"></i></a></li>
+			    </ul>
+			</div>
+		    </div>
+		    <div class="col-md-12 text-center copyright">
+			<p><small class="block">&copy; 2016 Free HTML5. All Rights Reserved.</small>
+		    </div>
+		</div>
+	    </div>
+	</footer>
     </div>
-  </header>
-
-
-
-
-
-
-
-  <div id="gtco-counter" class="gtco-section">
-    <div class="gtco-container">
-
-      <div class="row">
-	<div class="col-md-8 col-md-offset-2 text-center gtco-heading animate-box">
-	  <h2 class="cursive-font primary-color">Great Facts</h2>
-	  <p>The greatest goal in our company today.</p>
-	</div>
-      </div>
-
-      <div class="row">
-
-	<div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInUp">
-	  <div class="feature-center">
-	    <span class="counter js-counter" data-from="0" data-to="5" data-speed="5000" data-refresh-interval="50">1</span>
-	    <span class="counter-label">Avg. Rating</span>
-
-	  </div>
-	</div>
-	<div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInUp">
-	  <div class="feature-center">
-	    <span class="counter js-counter" data-from="0" data-to="43" data-speed="5000" data-refresh-interval="50">1</span>
-	    <span class="counter-label">Saved Races</span>
-	  </div>
-	</div>
-	<div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInUp">
-	  <div class="feature-center">
-	    <span class="counter js-counter" data-from="0" data-to="65" data-speed="5000" data-refresh-interval="50">1</span>
-	    <span class="counter-label">Adoptions</span>
-	  </div>
-	</div>
-	<div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInUp">
-	  <div class="feature-center">
-	    <span class="counter js-counter" data-from="0" data-to="2018" data-speed="5000" data-refresh-interval="50">1</span>
-	    <span class="counter-label">Year Started</span>
-
-	  </div>
-	</div>
-
-      </div>
-    </div>
-  </div>
-
-
-
-
-
-  <footer id="gtco-footer" role="contentinfo" style="background-image: url(assets/images/bg_1.jpg)" data-stellar-background-ratio="0.5">
-    <div class="overlay"></div>
-    <div class="gtco-container">
-      <div class="row row-pb-md">
-
-
-
-
-	<div class="col-md-12 text-center">
-	  <div class="gtco-widget">
-	    <h3>Get In Touch</h3>
-	    <ul class="gtco-quick-contact">
-	      <li><a href="#"><i class="icon-phone"></i> +1 234 567 890</a></li>
-	      <li><a href="#"><i class="icon-mail2"></i> info@FunnyPets.co</a></li>
-	      <li><a href="#"><i class="icon-chat"></i> Live Chat</a></li>
-	    </ul>
-	  </div>
-	  <div class="gtco-widget">
-	    <h3>Get Social</h3>
-	    <ul class="gtco-social-icons">
-	      <li><a href="#"><i class="icon-twitter"></i></a></li>
-	      <li><a href="#"><i class="icon-facebook"></i></a></li>
-	      <li><a href="#"><i class="icon-linkedin"></i></a></li>
-	      <li><a href="#"><i class="icon-dribbble"></i></a></li>
-	    </ul>
-	  </div>
-	</div>
-
-	<div class="col-md-12 text-center copyright">
-	  <p><small class="block">&copy; 2016 Free HTML5. All Rights Reserved.</small>
-	</div>
-
-      </div>
-
-
-
-    </div>
-  </footer>
-  <!-- </div> -->
-
 </div>
-
 <div class="gototop js-top">
-  <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+    <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
 </div>
