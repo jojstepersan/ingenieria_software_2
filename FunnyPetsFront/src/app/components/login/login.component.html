@@ -13,20 +13,19 @@
 				<div class="tab-content">
 				    <div class="tab-content-inner active" data-content="signup">
 					<h3 class="cursive-font">Login</h3>
-					<form action="#" (ngSubmit)="guardar()" #forma="ngForm">
+					<form action="#" (ngSubmit)="signInMail()" #forma="ngForm">
 					    <div class="row form-group">
 						<div class="col-md-12">
 						    <label for="email">Email</label>
-						    <input [(ngModel)]="user.email"
-									type="email" id="email"
+						    <input type="email" id="email"
+							   [(ngModel)]="user.email"
 							   name="email" class="form-control" required /><br>
 						</div>
 					    </div>
 					    <div class="row form-group">
 						<div class="col-md-12">
 						    <label for="password">Password</label>
-						    <input [(ngModel)]="user.password"
-									type="password" id="pass"
+						    <input type="password" id="pass"[(ngModel)]="user.password"
 							   name="password" class="form-control" required/>
 						</div>
 					    </div>
@@ -34,6 +33,26 @@
 						<div class="col-md-12">
 						    <input type="submit" [disabled]="!forma.valid"
 							   class="btn btn-primary btn-block" value="Create">
+						</div>
+					    </div>
+					    <div class="row form-inline">
+						<div class="col-md-4">
+						    <button type="buton" class="btn btn-primary btn-block"
+							    (click)="signInWithFacebook()">
+							<i class="icon-facebook"></i>
+						    </button>
+						</div>
+						<div class="col-md-4">
+						    <button type="button" class="btn btn-primary btn-block"
+							    (click)="signInWithTwitter()">
+							<i class="icon-twitter"></i>
+						    </button>
+						</div>
+						<div class="col-md-4">
+						    <button type="button" class="btn btn-primary btn-block"
+							    (click)="signInWithGoogle()">
+							<i class="icon-google"></i>
+						    </button>
 						</div>
 					    </div>
 					</form>

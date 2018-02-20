@@ -5,6 +5,12 @@ import { APP_ROUTING } from './app.routes';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { environment } from '../environments/environment';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AuthService } from './services/auth.service';
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavComponent } from './components/share/nav/nav.component';
@@ -25,9 +31,15 @@ import { UsersService } from './services/users.service';
         FormsModule,
         HttpModule,
         BrowserModule,
+	AngularFireModule.initializeApp(environment.firebase, 'angular-auth-firebase'),
+	AngularFireDatabaseModule,
+	AngularFireAuthModule,
         APP_ROUTING
     ],
-    providers: [UsersService],
+    providers: [
+	UsersService,
+	AuthService
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

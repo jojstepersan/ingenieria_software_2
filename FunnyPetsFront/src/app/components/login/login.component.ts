@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from '../../interfaces/user';
 import { NgForm } from '@angular/forms';
+import { UsersService } from '../../services/users.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
     selector: 'app-login',
@@ -11,10 +14,12 @@ export class LoginComponent implements OnInit {
     user: User = {
         email: '',
         password: '',
-        birthday: '',
-        key$: ''
+        birthday: ''
     }
-    constructor() { }
+    
+    constructor(private _userService:UsersService,
+		private _AuthService:AuthService,
+		private router:Router) { }
 
     ngOnInit() {
         this.loadScript('assets/js/jquery.easing.1.3.js');
@@ -36,5 +41,41 @@ export class LoginComponent implements OnInit {
 
     guardar() {
         console.log(this.user);
+	this._userService.nuevoUser(this.user)
+	    .subscribe(data =>{
+		this.router.navigate(['/login']);
+	    },error=> console.error(error));
+    }
+    
+    signInMail() {
+	this._AuthService.signInEmail(this.user.email, this.user.password)
+	    .then((res)=>{
+		this.router.navigate(['/login']);
+	    })
+	    .catch((err) => console.error('Error:'+err));
+    }
+
+    signInWithFacebook() {
+	this._AuthService.signFacebook()
+	    .then((res) => { 
+		this.router.navigate(['/'])
+            })
+	    .catch((err) => console.log(err));
+    }
+
+    signInWithTwitter() {
+	this._AuthService.signTwitter()
+	    .then((res) => { 
+		this.router.navigate(['/'])
+            })
+	    .catch((err) => console.log(err));
+    }
+
+    signInWithGoogle() {
+	this._AuthService.signGoogle()
+	    .then((res) => { 
+		this.router.navigate(['/'])
+            })
+	    .catch((err) => console.log(err));
     }
 }
