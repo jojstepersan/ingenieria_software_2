@@ -19,7 +19,6 @@
 	    "testTsconfig": "tsconfig.spec.json",
 	    "prefix": "app",
 	    "styles": [
-		"bootstrap.min.css",
 		"../src/assets/css/animate.css",
 		"../src/assets/css/bootstrap.css",
 		"../src/assets/css/icomoon.css",
