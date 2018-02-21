@@ -18,6 +18,7 @@ import { FooterComponent } from './components/share/footer/footer.component';
 import { HeaderComponent } from './components/share/header/header.component';
 
 import { UsersService } from './services/users.service';
+import { UserComponent } from './components/user/user.component';
 
 @NgModule({
     declarations: [
@@ -25,7 +26,8 @@ import { UsersService } from './services/users.service';
         LoginComponent,
         NavComponent,
         FooterComponent,
-        HeaderComponent
+        HeaderComponent,
+        UserComponent
     ],
     imports: [
         FormsModule,
