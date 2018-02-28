@@ -21,6 +21,8 @@ import { UsersService } from './services/users.service';
 import { IndexComponent } from './components/index/index.component';
 import { UserComponent } from './components/user/user.component';
 import { UserEntryComponent } from './components/user/user-entry/user-entry.component';
+import { DataProfileComponent } from './components/user/data-profile/data-profile.component';
+import { NotificationComponent } from './components/user/notification/notification.component';
 
 @NgModule({
     declarations: [
@@ -31,7 +33,9 @@ import { UserEntryComponent } from './components/user/user-entry/user-entry.comp
         HeaderComponent,
         IndexComponent,
         UserComponent,
-        UserEntryComponent
+        UserEntryComponent,
+        DataProfileComponent,
+        NotificationComponent
     ],
     imports: [
         FormsModule,
