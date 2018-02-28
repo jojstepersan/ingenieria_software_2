@@ -1,0 +1,17 @@
+<li class="list-group-item">
+  <div class="card-body">
+    <div class="form-inline">
+      <div class="input-group mb-2 mr-sm-2 col-md-8">
+	<input type="text" placeholder="cuentanos de tu mascota" class="form-control form-control-sm"/>
+      </div>
+      <button type="button" class="btn btn-primary mb-2">Publicar</button>
+    </div>
+  </div>
+</li>
+<li class="list-group-item" *ngFor="let entry of entrys">
+    <div class="card-body">
+	<h5 class="card-title">{{entry.owner}}</h5>
+	<p class="card-text">{{entry.description}}</p>
+	<a href="#" class="btn btn-primary">{{entry.other}}</a>
+    </div>
+</li>
