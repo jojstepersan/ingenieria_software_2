@@ -18,7 +18,9 @@ import { FooterComponent } from './components/share/footer/footer.component';
 import { HeaderComponent } from './components/share/header/header.component';
 
 import { UsersService } from './services/users.service';
+import { IndexComponent } from './components/index/index.component';
 import { UserComponent } from './components/user/user.component';
+import { UserEntryComponent } from './components/user/user-entry/user-entry.component';
 
 @NgModule({
     declarations: [
@@ -27,20 +29,22 @@ import { UserComponent } from './components/user/user.component';
         NavComponent,
         FooterComponent,
         HeaderComponent,
-        UserComponent
+        IndexComponent,
+        UserComponent,
+        UserEntryComponent
     ],
     imports: [
         FormsModule,
         HttpModule,
         BrowserModule,
-	AngularFireModule.initializeApp(environment.firebase, 'angular-auth-firebase'),
-	AngularFireDatabaseModule,
-	AngularFireAuthModule,
+        AngularFireModule.initializeApp(environment.firebase, 'angular-auth-firebase'),
+        AngularFireDatabaseModule,
+        AngularFireAuthModule,
         APP_ROUTING
     ],
     providers: [
-	UsersService,
-	AuthService
+        UsersService,
+        AuthService
     ],
     bootstrap: [AppComponent]
 })
