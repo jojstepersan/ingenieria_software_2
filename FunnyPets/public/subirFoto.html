@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Subir foto</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>Agregar una foto</div>
+
+    </body>
+    <script  >
+        var config = {
+            apiKey: "AIzaSyBRfZdgrnRTpB_siiWS7YZAqxYl6DKUNZ0",
+            authDomain: "funnypets-d3a7a.firebaseapp.com",
+            databaseURL: "https://funnypets-d3a7a.firebaseio.com",
+            //  storageBucket: 'gs://funnypets-d3a7a.appspot.com'
+            storageBucket: 'funnypets-d3a7a.appspot.com'
+        };
+        firebase.initializeApp(config);
+
+        var storage = firebase.storage();
+        var storageRef = storage.ref();
+        var imagesRef = storageRef.child('images');
+    </script>
+
+
+</html>
