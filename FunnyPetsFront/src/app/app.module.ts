@@ -23,6 +23,7 @@ import { UserComponent } from './components/user/user.component';
 import { UserEntryComponent } from './components/user/user-entry/user-entry.component';
 import { DataProfileComponent } from './components/user/data-profile/data-profile.component';
 import { NotificationComponent } from './components/user/notification/notification.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
     declarations: [
@@ -35,7 +36,8 @@ import { NotificationComponent } from './components/user/notification/notificati
         UserComponent,
         UserEntryComponent,
         DataProfileComponent,
-        NotificationComponent
+        NotificationComponent,
+        RegisterComponent
     ],
     imports: [
         FormsModule,
