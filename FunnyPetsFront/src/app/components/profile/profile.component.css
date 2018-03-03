@@ -1,0 +1,32 @@
+
+.mygallery {
+	padding:0;
+	margin:0 auto;
+}
+.mygallery h3 {
+	color:#A1B3A4;
+	font-size:30px;
+	font-family: 'Cinzel', serif;
+	line-height:25px;
+	font-weight:bold;
+	padding: 50px 0 40px;
+}
+.mygallery img.img-responsive{
+    height: 282px;
+	margin-bottom:5px;
+	opacity:0.67;
+	display:inline-block;
+	transition:0.5s all;
+	-webkit-transition:0.5s all;
+	-moz-transition:0.5s all;
+	-o-transition:0.5s all;
+	-ms-transition:0.5s all;
+}
+.mygallery img.img-responsive:hover {
+	opacity:1;
+	transition:0.5s all;
+	-webkit-transition:0.5s all;
+	-moz-transition:0.5s all;
+	-o-transition:0.5s all;
+	-ms-transition:0.5s all;
+}
