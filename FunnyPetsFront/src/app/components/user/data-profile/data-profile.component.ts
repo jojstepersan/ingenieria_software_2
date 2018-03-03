@@ -10,6 +10,10 @@ export class DataProfileComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+<<<<<<< HEAD
+=======
+
+>>>>>>> Juan's_branch
   }
 
 }
