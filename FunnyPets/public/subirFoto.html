@@ -46,7 +46,12 @@ and open the template in the editor.
             //get file
             var file=e.target.files[0];
             //create a storage reference
-console.log(file.name);
+            var fileName=file.name.split('.');
+            if(fileName[fileName.length-1]!=="jpg" && fileName[fileName.length-1]!=="png"){
+                alert("seea serio hermano");
+            }
+
+            else{
             var storageRef =firebase.storage().ref('images/'+file.name);
             //upload file
             var task=storageRef.put(file);
@@ -65,6 +70,7 @@ console.log(file.name);
 
                 }
             );
-        });
+        }});
+
     </script>
 </html>
