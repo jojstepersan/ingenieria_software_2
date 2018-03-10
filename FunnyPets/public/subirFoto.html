@@ -53,8 +53,8 @@ console.log(file.name);
             //update progress bar
             task.on('state_changed',
                 function progress(snapshot){
-                    var percentage=100*(snapshot.bytesTranferred/snapshot.totalBytes);
-                    uploader.value=percentage;
+                    var p=100*(snapshot.bytesTransferred/snapshot.totalBytes);
+                    uploader.value=p;
                 },
                 function error(err){
 
