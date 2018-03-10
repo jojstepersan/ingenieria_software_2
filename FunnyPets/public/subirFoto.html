@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style media="screen">
+
+            #uploader{
+
+                -webkit-appearance: none;
+                appearance: none;
+                width: 50%;
+                margin-bottom: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>subir fotos
+        </div>
+        <progress value="0" max="100" id="uploader">0%</progress>
+        <input name="myFile" type="file" id="fileUpdate" value="upload">
+    </body>
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBRfZdgrnRTpB_siiWS7YZAqxYl6DKUNZ0",
+        authDomain: "funnypets-d3a7a.firebaseapp.com",
+        databaseURL: "https://funnypets-d3a7a.firebaseio.com",
+        projectId: "funnypets-d3a7a",
+        storageBucket: "funnypets-d3a7a.appspot.com",
+        messagingSenderId: "974970038538"
+      };
+       var app=  firebase.initializeApp(config);
+
+        var storage = app.storage();
+        var fileUpload=document.getElementById("fileUpdate");
+        var uploader=document.getElementById("uploader");
+        fileUpload.addEventListener('change',function(e){
+            //get file
+            var file=e.target.files[0];
+            //create a storage reference
+console.log(file.name);
+            var storageRef =firebase.storage().ref('images/'+file.name);
+            //upload file
+            var task=storageRef.put(file);
+            //update progress bar
+            task.on('state_changed',
+                function progress(snapshot){
+                    var percentage=100*(snapshot.bytesTranferred/snapshot.totalBytes);
+                    uploader.value=percentage;
+                },
+                function error(err){
+
+
+                },
+                function complete(){
+
+
+                }
+            );
+        });
+    </script>
+</html>
