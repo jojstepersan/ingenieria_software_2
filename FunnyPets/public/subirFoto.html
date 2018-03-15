@@ -24,7 +24,7 @@ and open the template in the editor.
         <div>subir fotos
         </div>
         <progress value="0" max="100" id="uploader">0%</progress>
-        <input name="myFile" type="file" id="fileUpdate">
+        <input name="myFile" type="file" id="fileUpdate" value="upload">
     </body>
     <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
     <script>
@@ -46,15 +46,20 @@ and open the template in the editor.
             //get file
             var file=e.target.files[0];
             //create a storage reference
-console.log(file.name);
+            var fileName=file.name.split('.');
+            if(fileName[fileName.length-1]!=="jpg" && fileName[fileName.length-1]!=="png"){
+                alert("seea serio hermano");
+            }
+
+            else{
             var storageRef =firebase.storage().ref('images/'+file.name);
             //upload file
             var task=storageRef.put(file);
             //update progress bar
             task.on('state_changed',
                 function progress(snapshot){
-                    var porcentage=100*snapshot.bytesTranferred/snapshot.totalBytes;
-                    uploader.value=porcentage;
+                    var p=100*(snapshot.bytesTransferred/snapshot.totalBytes);
+                    uploader.value=p;
                 },
                 function error(err){
 
@@ -65,6 +70,6 @@ console.log(file.name);
 
                 }
             );
-        });
+        }});
     </script>
 </html>

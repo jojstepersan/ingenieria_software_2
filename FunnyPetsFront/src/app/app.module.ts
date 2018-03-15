@@ -18,7 +18,15 @@ import { FooterComponent } from './components/share/footer/footer.component';
 import { HeaderComponent } from './components/share/header/header.component';
 
 import { UsersService } from './services/users.service';
+import { IndexComponent } from './components/index/index.component';
 import { UserComponent } from './components/user/user.component';
+import { UserEntryComponent } from './components/user/user-entry/user-entry.component';
+import { DataProfileComponent } from './components/user/data-profile/data-profile.component';
+import { NotificationComponent } from './components/user/notification/notification.component';
+import { RegisterComponent } from './components/register/register.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { UploadComponent } from './component/upload/upload.component';
+
 
 @NgModule({
     declarations: [
@@ -27,20 +35,27 @@ import { UserComponent } from './components/user/user.component';
         NavComponent,
         FooterComponent,
         HeaderComponent,
-        UserComponent
+        IndexComponent,
+        UserComponent,
+        UserEntryComponent,
+        DataProfileComponent,
+        RegisterComponent,
+        ProfileComponent,
+        NotificationComponent,
+        UploadComponent
     ],
     imports: [
         FormsModule,
         HttpModule,
         BrowserModule,
-	AngularFireModule.initializeApp(environment.firebase, 'angular-auth-firebase'),
-	AngularFireDatabaseModule,
-	AngularFireAuthModule,
+        AngularFireModule.initializeApp(environment.firebase, 'angular-auth-firebase'),
+        AngularFireDatabaseModule,
+        AngularFireAuthModule,
         APP_ROUTING
     ],
     providers: [
-	UsersService,
-	AuthService
+        UsersService,
+        AuthService
     ],
     bootstrap: [AppComponent]
 })
