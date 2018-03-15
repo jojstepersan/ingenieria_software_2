@@ -25,6 +25,8 @@ import { DataProfileComponent } from './components/user/data-profile/data-profil
 import { NotificationComponent } from './components/user/notification/notification.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { UploadComponent } from './component/upload/upload.component';
+
 
 @NgModule({
     declarations: [
@@ -37,9 +39,10 @@ import { ProfileComponent } from './components/profile/profile.component';
         UserComponent,
         UserEntryComponent,
         DataProfileComponent,
-        NotificationComponent,
         RegisterComponent,
-        ProfileComponent
+        ProfileComponent,
+        NotificationComponent,
+        UploadComponent
     ],
     imports: [
         FormsModule,
