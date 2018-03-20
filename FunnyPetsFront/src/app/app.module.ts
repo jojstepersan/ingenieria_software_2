@@ -7,7 +7,8 @@ import { HttpModule } from '@angular/http';
 
 import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthService } from './services/auth.service';
 
@@ -25,7 +26,9 @@ import { DataProfileComponent } from './components/user/data-profile/data-profil
 import { NotificationComponent } from './components/user/notification/notification.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { UploadComponent } from './component/upload/upload.component';
+import { DropZoneDirective } from './directives/drop-zone.directive';
+import { FileUploadComponent } from './components/file-upload/file-upload.component';
+import { FileSizePipe } from './pipes/file-size.pipe';
 
 
 @NgModule({
@@ -42,14 +45,17 @@ import { UploadComponent } from './component/upload/upload.component';
         RegisterComponent,
         ProfileComponent,
         NotificationComponent,
-        UploadComponent
+        DropZoneDirective,
+        FileUploadComponent,
+        FileSizePipe
     ],
     imports: [
         FormsModule,
         HttpModule,
         BrowserModule,
         AngularFireModule.initializeApp(environment.firebase, 'angular-auth-firebase'),
-        AngularFireDatabaseModule,
+        AngularFireStorageModule,
+        AngularFirestoreModule,
         AngularFireAuthModule,
         APP_ROUTING
     ],
