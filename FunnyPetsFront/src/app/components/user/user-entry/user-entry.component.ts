@@ -17,4 +17,8 @@ export class UserEntryComponent implements OnInit {
     ngOnInit() {
     }
 
+hola(){
+console.log("hola mundolendo!!!!");
+
+}
 }
