@@ -26,6 +26,7 @@ import { NotificationComponent } from './components/user/notification/notificati
 import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -37,9 +38,9 @@ import { ProfileComponent } from './components/profile/profile.component';
         UserComponent,
         UserEntryComponent,
         DataProfileComponent,
-        NotificationComponent,
         RegisterComponent,
         ProfileComponent
+
     ],
     imports: [
         FormsModule,
