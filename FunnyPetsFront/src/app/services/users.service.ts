@@ -21,6 +21,7 @@ export class UsersService {
     getUser(key$:string){
 	let url=`${this.usersUrl}/${ key$ }.json`;
 	return this.http.get(url).map(res=>res.json());
+  
     }
 
 }
