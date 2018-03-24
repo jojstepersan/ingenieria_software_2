@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from 'angularfire2/firestore';
+import { AuthService } from '../../services/auth.service';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _AuthService: AuthService) { }
 
   ngOnInit() {
+    console.log(this.getuphoto());
+  }
+  getuphoto() {
+      return this._AuthService.getuphoto();
+  }
+  getName() {
+      return this._AuthService.getUser();
   }
 
 }

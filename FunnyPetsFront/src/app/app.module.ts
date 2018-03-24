@@ -19,6 +19,7 @@ import { FooterComponent } from './components/share/footer/footer.component';
 import { HeaderComponent } from './components/share/header/header.component';
 
 import { UsersService } from './services/users.service';
+import { PublicacionService } from './services/publicacion.service';
 import { IndexComponent } from './components/index/index.component';
 import { UserComponent } from './components/user/user.component';
 import { UserEntryComponent } from './components/user/user-entry/user-entry.component';
@@ -60,6 +61,7 @@ import { FileSizePipe } from './pipes/file-size.pipe';
         APP_ROUTING
     ],
     providers: [
+        PublicacionService ,
         UsersService,
         AuthService
     ],

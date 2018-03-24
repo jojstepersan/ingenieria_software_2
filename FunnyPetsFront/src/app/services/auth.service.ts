@@ -9,7 +9,8 @@ import { Observable } from 'rxjs/Observable';
 export class AuthService {
     private user: Observable<firebase.User>;
     private userDetails: firebase.User = null;
-    
+    private id :string ="";
+
     constructor( private _firebaseAuth: AngularFireAuth, private router: Router) {
 	this.user = _firebaseAuth.authState;
 	this.user.subscribe(
@@ -62,5 +63,13 @@ export class AuthService {
 
     getUser() {
 	return this.userDetails.displayName;
+    }
+
+    getuserID() {
+       return this.userDetails.uid;
+    }
+
+    getuphoto() {
+       return this.userDetails.photoURL;
     }
 }
