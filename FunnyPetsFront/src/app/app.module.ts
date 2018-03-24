@@ -26,9 +26,13 @@ import { DataProfileComponent } from './components/user/data-profile/data-profil
 import { NotificationComponent } from './components/user/notification/notification.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
+<<<<<<< HEAD
 import { DropZoneDirective } from './directives/drop-zone.directive';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
 import { FileSizePipe } from './pipes/file-size.pipe';
+=======
+import { UploadComponent } from './component/upload/upload.component';
+>>>>>>> stiven2
 
 
 @NgModule({
@@ -45,17 +49,25 @@ import { FileSizePipe } from './pipes/file-size.pipe';
         RegisterComponent,
         ProfileComponent,
         NotificationComponent,
+<<<<<<< HEAD
         DropZoneDirective,
         FileUploadComponent,
         FileSizePipe
+=======
+        UploadComponent
+>>>>>>> stiven2
     ],
     imports: [
         FormsModule,
         HttpModule,
         BrowserModule,
         AngularFireModule.initializeApp(environment.firebase, 'angular-auth-firebase'),
+<<<<<<< HEAD
         AngularFireStorageModule,
         AngularFirestoreModule,
+=======
+        AngularFireDatabaseModule,
+>>>>>>> stiven2
         AngularFireAuthModule,
         APP_ROUTING
     ],

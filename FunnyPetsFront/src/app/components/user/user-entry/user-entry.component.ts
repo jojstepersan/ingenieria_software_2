@@ -8,9 +8,15 @@ import { UserEntry } from '../../../interfaces/user-entry';
 })
 export class UserEntryComponent implements OnInit {
     entrys: UserEntry[] = [
+<<<<<<< HEAD
         { owner: 'Marcos', description: 'Cachorro tranquilo', other:"No adopción", image:"assets/images/m1.jpg" },
         { owner: 'Felipe', description: 'Gatito alegre', other: 'Adopción',image:"assets/images/m11.jpg" },
         { owner: 'Nadia', description: 'Ave muy feliz', other: 'Adopción',image:"assets/images/m6.jpg" }
+=======
+        { owner: 'Tonny Stark', description: 'Severo parce bla,bla,bla', other: 'algo extra' },
+        { owner: 'Mongomery Burns', description: 'Les traigo paz, bla,bla,bla', other: 'nada socio' },
+        { owner: 'Chucho el de las empanadas', description: 'Descuento compre 5 lleve 6', other: 'no fio' }
+>>>>>>> stiven2
     ];
     constructor() { }
 
