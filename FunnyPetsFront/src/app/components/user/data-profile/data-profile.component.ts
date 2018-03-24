@@ -5,19 +5,19 @@ import * as firebase from 'firebase/app';
 
 
 @Component({
-  selector: 'app-data-profile',
-  templateUrl: './data-profile.component.html',
-  styleUrls: ['./data-profile.component.css']
+    selector: 'app-data-profile',
+    templateUrl: './data-profile.component.html',
+    styleUrls: ['./data-profile.component.css']
 })
 export class DataProfileComponent implements OnInit {
 
-  constructor(private _AuthService: AuthService) { }
+    constructor(private _AuthService: AuthService) { }
 
-  ngOnInit() {
-    console.log(this.getuphoto());
-  }
-  getuphoto() {
-      return this._AuthService.getuphoto();
-  }
+    ngOnInit() {
+    }
+
+    getPhoto() {
+        return this._AuthService.getPhoto();
+    }
 
 }

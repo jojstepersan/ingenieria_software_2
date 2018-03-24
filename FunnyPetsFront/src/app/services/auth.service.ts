@@ -9,67 +9,67 @@ import { Observable } from 'rxjs/Observable';
 export class AuthService {
     private user: Observable<firebase.User>;
     private userDetails: firebase.User = null;
-    private id :string ="";
+    private id: string = "";
 
-    constructor( private _firebaseAuth: AngularFireAuth, private router: Router) {
-	this.user = _firebaseAuth.authState;
-	this.user.subscribe(
-	    (user) => {
-		if (user) {
-		    this.userDetails = user;
-		} else {
-		    this.userDetails = null;
-		}
-	    }
-	);
+    constructor(private _firebaseAuth: AngularFireAuth, private router: Router) {
+        this.user = _firebaseAuth.authState;
+        this.user.subscribe(
+            (user) => {
+                if (user) {
+                    this.userDetails = user;
+                } else {
+                    this.userDetails = null;
+                }
+            }
+        );
     }
 
-    signInEmail(email,password) {
-	const credential = firebase.auth.EmailAuthProvider.credential(email,password);
-	console.log(this._firebaseAuth.auth.createUserWithEmailAndPassword(email,password));
-	return this._firebaseAuth.auth.createUserWithEmailAndPassword(email,password);
+    signInEmail(email, password) {
+        const credential = firebase.auth.EmailAuthProvider.credential(email, password);
+        console.log(this._firebaseAuth.auth.createUserWithEmailAndPassword(email, password));
+        return this._firebaseAuth.auth.createUserWithEmailAndPassword(email, password);
     }
 
     signTwitter() {
-	return this._firebaseAuth.auth.signInWithPopup(
-	    new firebase.auth.TwitterAuthProvider()
-	)
+        return this._firebaseAuth.auth.signInWithPopup(
+            new firebase.auth.TwitterAuthProvider()
+        )
     }
 
     signFacebook() {
-	return this._firebaseAuth.auth.signInWithPopup(
-	    new firebase.auth.FacebookAuthProvider()
-	)
+        return this._firebaseAuth.auth.signInWithPopup(
+            new firebase.auth.FacebookAuthProvider()
+        )
     }
 
     signGoogle() {
-	return this._firebaseAuth.auth.signInWithPopup(
-	    new firebase.auth.GoogleAuthProvider()
-	)
+        return this._firebaseAuth.auth.signInWithPopup(
+            new firebase.auth.GoogleAuthProvider()
+        )
     }
 
     isLoggedIn() {
-	if (this.userDetails == null) {
-	    return false;
-	} else {
-	    return true;
-	}
+        if (this.userDetails == null) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     logOut() {
-	return this._firebaseAuth.auth.signOut()
-	    .then((res) => true);
+        return this._firebaseAuth.auth.signOut()
+            .then((res) => true);
     }
 
     getUser() {
-	return this.userDetails.displayName;
+        return this.userDetails.displayName;
     }
 
     getuserID() {
-       return this.userDetails.uid;
+        return this.userDetails.uid;
     }
 
-    getuphoto() {
-       return this.userDetails.photoURL;
+    getPhoto() {
+        return this.userDetails.photoURL;
     }
 }

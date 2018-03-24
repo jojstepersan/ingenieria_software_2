@@ -6,7 +6,7 @@ import { AngularFirestore } from 'angularfire2/firestore';
 import { AuthService } from '../../services/auth.service';
 import { PublicacionService } from '../../services/publicacion.service';
 import * as firebase from 'firebase/app';
-import { pust } from '../../interfaces/pust';
+import { UserEntry } from '../../interfaces/user-entry';
 
 
 @Component({
@@ -24,18 +24,13 @@ export class FileUploadComponent implements OnInit {
     isHovering: boolean;
     selectedFiles: FileList;
     description: string;
-    Pust: pust = {
-      url :'',
-      useruid : '' ,
-      description : ''
-    }
-
+    userEntry: UserEntry;
 
     constructor(private storage: AngularFireStorage,
-       private db: AngularFirestore ,
-       private _postService: PublicacionService,
-       private _AuthService: AuthService,
-      private router: Router) { }
+        private db: AngularFirestore,
+        private _postService: PublicacionService,
+        private _AuthService: AuthService,
+        private router: Router) { }
 
     ngOnInit() {
     }
@@ -44,8 +39,8 @@ export class FileUploadComponent implements OnInit {
         this.isHovering = event;
     }
 
-    detectFile(event: FileList){
-      this.selectedFiles=event;
+    detectFile(event: FileList) {
+        this.selectedFiles = event;
     }
 
     startUpload() {
@@ -62,22 +57,18 @@ export class FileUploadComponent implements OnInit {
         this.percentage = this.task.percentageChanges();
         this.snapshot = this.task.snapshotChanges();
         this.downloadUrl = this.task.downloadURL();
-        console.log(this.getUID());
-        console.log(this.description);
-        console.log(this.task.downloadURL());
-        this.Pust.useruid=this.getUID();
-        this.Pust.description=this.description;
-        this._postService.nuevoUser(this.Pust)
-            .subscribe(data => {
-            }, error => console.error(error));
-
+        this.task.downloadURL().subscribe(res => {
+            this.userEntry.image = res.toString();
+            this.userEntry.owner = this._AuthService.getuserID();
+            this.userEntry.name = this._AuthService.getUser();
+            this.userEntry.description = this.description;
+            this._postService.nuevoUser(this.userEntry)
+                .subscribe(data => {
+                }, error => console.error(error));
+        });
     }
 
     isActive(snapshot) {
         return snapshot.state === 'running' && snapshot.bytesTransferred < snapshot.totalBytes;
-    }
-
-    getUID() {
-        return this._AuthService.getuserID();
     }
 }
