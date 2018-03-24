@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from 'angularfire2/firestore';
+import { AuthService } from '../../../services/auth.service';
+import * as firebase from 'firebase/app';
+
 
 @Component({
   selector: 'app-data-profile',
@@ -7,10 +11,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DataProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _AuthService: AuthService) { }
 
   ngOnInit() {
-
+    console.log(this.getuphoto());
+  }
+  getuphoto() {
+      return this._AuthService.getuphoto();
   }
 
 }
