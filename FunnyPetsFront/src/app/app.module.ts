@@ -7,7 +7,8 @@ import { HttpModule } from '@angular/http';
 
 import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthService } from './services/auth.service';
 
@@ -18,7 +19,17 @@ import { FooterComponent } from './components/share/footer/footer.component';
 import { HeaderComponent } from './components/share/header/header.component';
 
 import { UsersService } from './services/users.service';
+import { IndexComponent } from './components/index/index.component';
 import { UserComponent } from './components/user/user.component';
+import { UserEntryComponent } from './components/user/user-entry/user-entry.component';
+import { DataProfileComponent } from './components/user/data-profile/data-profile.component';
+import { NotificationComponent } from './components/user/notification/notification.component';
+import { RegisterComponent } from './components/register/register.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { DropZoneDirective } from './directives/drop-zone.directive';
+import { FileUploadComponent } from './components/file-upload/file-upload.component';
+import { FileSizePipe } from './pipes/file-size.pipe';
+
 
 @NgModule({
     declarations: [
@@ -27,20 +38,30 @@ import { UserComponent } from './components/user/user.component';
         NavComponent,
         FooterComponent,
         HeaderComponent,
-        UserComponent
+        IndexComponent,
+        UserComponent,
+        UserEntryComponent,
+        DataProfileComponent,
+        RegisterComponent,
+        ProfileComponent,
+        NotificationComponent,
+        DropZoneDirective,
+        FileUploadComponent,
+        FileSizePipe
     ],
     imports: [
         FormsModule,
         HttpModule,
         BrowserModule,
-	AngularFireModule.initializeApp(environment.firebase, 'angular-auth-firebase'),
-	AngularFireDatabaseModule,
-	AngularFireAuthModule,
+        AngularFireModule.initializeApp(environment.firebase, 'angular-auth-firebase'),
+        AngularFireStorageModule,
+        AngularFirestoreModule,
+        AngularFireAuthModule,
         APP_ROUTING
     ],
     providers: [
-	UsersService,
-	AuthService
+        UsersService,
+        AuthService
     ],
     bootstrap: [AppComponent]
 })
