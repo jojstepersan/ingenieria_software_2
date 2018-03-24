@@ -10,9 +10,15 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style media="screen">
+<<<<<<< HEAD
             
             #uploader{
                 
+=======
+
+            #uploader{
+
+>>>>>>> Kevin's_branch
                 -webkit-appearance: none;
                 appearance: none;
                 width: 50%;
@@ -24,6 +30,7 @@ and open the template in the editor.
         <div>subir fotos
         </div>
         <progress value="0" max="100" id="uploader">0%</progress>
+<<<<<<< HEAD
         <input name="myFile" type="file" id="fileUpdate">
     </body>
     <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
@@ -44,6 +51,23 @@ and open the template in the editor.
             messagingSenderId: "974970038538"
         };
        var app= firebase.initializeApp(config);
+=======
+        <input name="myFile" type="file" id="fileUpdate" value="upload">
+    </body>
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBRfZdgrnRTpB_siiWS7YZAqxYl6DKUNZ0",
+        authDomain: "funnypets-d3a7a.firebaseapp.com",
+        databaseURL: "https://funnypets-d3a7a.firebaseio.com",
+        projectId: "funnypets-d3a7a",
+        storageBucket: "funnypets-d3a7a.appspot.com",
+        messagingSenderId: "974970038538"
+      };
+       var app=  firebase.initializeApp(config);
+
+>>>>>>> Kevin's_branch
         var storage = app.storage();
         var fileUpload=document.getElementById("fileUpdate");
         var uploader=document.getElementById("uploader");
@@ -51,12 +75,23 @@ and open the template in the editor.
             //get file
             var file=e.target.files[0];
             //create a storage reference
+<<<<<<< HEAD
             var storageRef = storage('images/'+file.name);
+=======
+            var fileName=file.name.split('.');
+            if(fileName[fileName.length-1]!=="jpg" && fileName[fileName.length-1]!=="png"){
+                alert("seea serio hermano");
+            }
+
+            else{
+            var storageRef =firebase.storage().ref('images/'+file.name);
+>>>>>>> Kevin's_branch
             //upload file
             var task=storageRef.put(file);
             //update progress bar
             task.on('state_changed',
                 function progress(snapshot){
+<<<<<<< HEAD
                     var porcentage=100*snapshot.bytesTranferred/snapshot.totalBytes;
                     uploader.value=porcentage;
                 },
@@ -70,5 +105,21 @@ and open the template in the editor.
                 }
             );
         });
+=======
+                    var p=100*(snapshot.bytesTransferred/snapshot.totalBytes);
+                    uploader.value=p;
+                },
+                function error(err){
+
+
+                },
+                function complete(){
+
+
+                }
+            );
+        }});
+
+>>>>>>> Kevin's_branch
     </script>
 </html>
