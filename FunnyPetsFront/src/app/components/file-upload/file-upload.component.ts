@@ -26,13 +26,14 @@ export class FileUploadComponent implements OnInit {
     selectedFiles: FileList;
     description: string;
     currentFileUpload: FileUpload;
-    userEntry: UserEntry = {
-        image: '',
-        owner: '',
-        name: '',
-        description: '',
-        other: ''
-    };
+    userEntry: UserEntry = new UserEntry();
+    // userEntry: UserEntry = {
+    //     image: '',
+    //     owner: '',
+    //     name: '',
+    //     description: '',
+    //     other: ''
+    // };
 
     constructor(private storage: AngularFireStorage,
         private db: AngularFirestore,
