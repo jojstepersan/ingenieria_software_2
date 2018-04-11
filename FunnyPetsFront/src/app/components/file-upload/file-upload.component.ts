@@ -7,6 +7,7 @@ import { AuthService } from '../../services/auth.service';
 import { PublicacionService } from '../../services/publicacion.service';
 import * as firebase from 'firebase/app';
 import { UserEntry } from '../../interfaces/user-entry';
+import { FileUpload } from '../../interfaces/file-upload';
 
 
 @Component({
@@ -24,7 +25,14 @@ export class FileUploadComponent implements OnInit {
     isHovering: boolean;
     selectedFiles: FileList;
     description: string;
-    userEntry: UserEntry;
+    currentFileUpload: FileUpload;
+    userEntry: UserEntry = {
+        image: '',
+        owner: '',
+        name: '',
+        description: '',
+        other: ''
+    };
 
     constructor(private storage: AngularFireStorage,
         private db: AngularFirestore,
@@ -44,7 +52,7 @@ export class FileUploadComponent implements OnInit {
     }
 
     startUpload() {
-        let uid: string = 'UnFunny';
+        let uid: string = this._AuthService.getuserID();
         let post: string = 'post';
         const file = this.selectedFiles.item(0);
         if (file.type.split('/')[0] !== 'image') {
@@ -53,19 +61,24 @@ export class FileUploadComponent implements OnInit {
         }
         const path = `images/${new Date().getTime()}_${file.name}`;
         const customMetadata = { app: 'FunnyPets', uid: uid, post: post };
-        this.task = this.storage.upload(path, file, { customMetadata });
-        this.percentage = this.task.percentageChanges();
-        this.snapshot = this.task.snapshotChanges();
-        this.downloadUrl = this.task.downloadURL();
-        this.task.downloadURL().subscribe(res => {
-            this.userEntry.image = res.toString();
-            this.userEntry.owner = this._AuthService.getuserID();
-            this.userEntry.name = this._AuthService.getUser();
-            this.userEntry.description = this.description;
-            this._postService.nuevoUser(this.userEntry)
-                .subscribe(data => {
-                }, error => console.error(error));
-        });
+        this.currentFileUpload = new FileUpload(file);
+        this._postService.pushFileToStorage(file, this.percentage);
+        this._postService.getFileUploads()
+        // this.task = this.storage.upload(path, file, { customMetadata });
+        // this.percentage = this.task.percentageChanges();
+        // this.snapshot = this.task.snapshotChanges();
+        // this.downloadUrl = this.task.downloadURL();
+        // console.log('entra en promesa');
+        this.task.downloadURL().map(res => {
+            this.userEntry.image = res;
+            console.log(res.toString());
+        }).subscribe();
+        this.userEntry.owner = uid;
+        this.userEntry.name = this._AuthService.getUser();
+        this.userEntry.description = this.description;
+        this._postService.nuevoUser(this.userEntry)
+            .subscribe(data => {
+            }, error => console.error(error));
     }
 
     isActive(snapshot) {

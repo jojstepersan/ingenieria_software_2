@@ -9,10 +9,7 @@ import { PublicacionService } from '../../../services/publicacion.service';
 })
 export class UserEntryComponent implements OnInit {
     entrys: UserEntry[] = [];
-    //     { owner: 'Marcos', description: 'Cachorro tranquilo', other:"No adopción", image:"assets/images/m1.jpg" },
-    //     { owner: 'Felipe', description: 'Gatito alegre', other: 'Adopción',image:"assets/images/m11.jpg" },
-    //     { owner: 'Nadia', description: 'Ave muy feliz', other: 'Adopción',image:"assets/images/m6.jpg" }
-    // ];
+
     constructor(private _publicaciones: PublicacionService) { }
 
     ngOnInit() {
